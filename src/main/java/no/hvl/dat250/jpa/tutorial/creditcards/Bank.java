@@ -9,6 +9,7 @@ import org.hibernate.type.descriptor.java.spi.CollectionJavaType;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -23,5 +24,9 @@ public class Bank {
 
     @OneToMany(mappedBy = "bank")
     private Collection<CreditCard> ownedCards;
+
+    public Set getOwnedCards(){
+        return Set.copyOf(ownedCards);
+    }
 
 }

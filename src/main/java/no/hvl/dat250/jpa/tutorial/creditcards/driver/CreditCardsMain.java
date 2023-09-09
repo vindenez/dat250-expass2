@@ -42,10 +42,8 @@ public class CreditCardsMain {
     em.persist(address);
     em.persist(customer);
 
-    List<Customer> creditCardCustomer = new ArrayList<>();
-
     Pincode pincode = new Pincode();
-    pincode.setCode("1337");
+    pincode.setCode("123");
     pincode.setCount(1);
 
     Bank bank = new Bank();
@@ -65,6 +63,8 @@ public class CreditCardsMain {
     creditCard2.setCreditLimit(2000);
     creditCard2.setCustomers(List.of(customer));
 
+    ArrayList<CreditCard> creditCards = new ArrayList<>(List.of(creditCard1,creditCard2));
+
     customer.setCreditCards(List.of(creditCard1,creditCard2));
 
     em.persist(creditCard1);
@@ -75,6 +75,12 @@ public class CreditCardsMain {
     creditCard2.setPincode(pincode);
 
     em.persist(pincode);
+
+    creditCard1.setBank(bank);
+    creditCard2.setBank(bank);
+    bank.setOwnedCards(creditCards);
+
+    em.persist(bank);
 
   }
 }

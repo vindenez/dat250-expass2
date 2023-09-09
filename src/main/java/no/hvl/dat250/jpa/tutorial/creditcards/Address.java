@@ -18,7 +18,7 @@ public class Address {
 
 
     @ManyToMany(mappedBy = "addresses")
-    private List<Customer> owners = new ArrayList<>();
+    private Collection<Customer> owners = new ArrayList<>();
 
 
     private String street;
