@@ -1,8 +1,8 @@
 ### Questions
 
 * The database is stored in the DB.mv.db and DB.trace.db files.
-The used database is every entity class being a table in the database and relations between columns of tables is connected by the class variables.
-I believe it is used when entityManagerFactory is called and the relations between classes is created.
+  The used database is every entity class being a table in the database and relations between columns of tables is connected by the class variables.
+  I believe it is used when EntityManager is called and the relations between classes is created.
 
 * Hibernate:
   create table Customer (
@@ -10,8 +10,9 @@ I believe it is used when entityManagerFactory is called and the relations betwe
   name varchar(255),
   primary key (id)
   )
+
 * Changed false to true on this line in perstistence.xml: property name="hibernate.show_sql" value="true"/
-No I did not expect that many tables, but to be fair it has been atleast a year since the last time I worked with relational databases
+  The created tables did actually correspond to my initial thoughts regarding this exercise.
 
 
 ## Short report
@@ -20,3 +21,7 @@ No I did not expect that many tables, but to be fair it has been atleast a year 
 
 * https://github.com/selabhvl/dat250public/blob/master/expassignments/expass2.md
 
+* Changed false to true on this line in perstistence.xml: property name="hibernate.show_sql" value="true"/
+  The created tables did actually correspond to my initial thoughts regarding this exercise.
+
+* The tests passes, but I couldn´t get them to pass without changing Address.getOwners() and Bank.getOwningCards to return a set instead of a list.
